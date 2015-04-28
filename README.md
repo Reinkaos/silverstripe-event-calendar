@@ -35,3 +35,5 @@ Calendar:
     timezone: America/New_York
     language: EN
 ```
+
+This repo was forked by Richard Matthews @ Haunt Digital LTD.
