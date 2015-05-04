@@ -949,4 +949,6 @@ class Calendar_Controller extends Page_Controller {
 		return $this->redirect($this->Link('show').'/'.$data['Year'].$data['Month']);
 	}
 
+	
+
 }

@@ -1,24 +1,19 @@
+<ul class="event-list">
+
 <ul>
+
 <% loop Events %>
-<li class="vevent clearfix">
-  <h3 class="summary"><% if Announcement %>$Title<% else %><a class="url" href="$Event.URLSegment">$Event.Title</a><% end_if %></h3>
-  <p class="dates">$DateRange <% if AllDay %><% _t('ALLDAY','All Day') %><% else %><% if StartTime %>$TimeRange<% end_if %><% end_if %></p>
-  <p><a href="$ICSLink"><% _t('ADD','Add this to Calendar') %></a></p>
-  <% if Announcement %>
-  $Content
-  <% else %>
-  <% with Event %>$Content.LimitWordCount(60)<% end_with %> <a href="$Event.URLSegment"><% _t('MORE','Read more&hellip;') %></a>
-  <% end_if %>
-  <% if OtherDates %>
-  <div class="event-calendar-other-dates">
-    <h4><% _t('Calendar.ADDITIONALDATES','Additional Dates for this Event') %>:</h4>
+
+  <li>
     <ul>
-      <% loop OtherDates %>
-      <li><a href="$Link" title="$Event.Title">$DateRange <% if StartTime %> $TimeRange<% end_if %></a></li>
-      <% end_loop %>
+      <li>$Event.FeaturedImage.CroppedImage(200,150)</li>
+      <li><h2><a href="$Event.URLSegment">$Event.Title.LimitWordCount(5)</a></h2>
+     	$Content.NoHTML.LimitWordCount(12)
+      <p>Date: $DateRange at $Event.Venue</p>
+      
     </ul>
-  </div>
-  <% end_if %>
-</li>
+  </li>
+
 <% end_loop %>
+
 </ul>
